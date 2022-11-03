@@ -16,7 +16,11 @@
             <select name="role" id="role">
                 <option value="" disabled selected hidden>Please select an option</option>
                 @foreach ($roles as $role)
-                    <option value="{{ $role['value'] }}">{{ $role['name'] }}</option>
+                    <option value="{{ $role['value'] }}" @if (old('role') == $role['value'])
+                      selected
+                    @else
+                        
+                    @endif>{{ $role['name'] }}</option>
                 @endforeach
             </select>
             @error('role')

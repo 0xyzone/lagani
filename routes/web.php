@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -31,3 +32,6 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 // Log Out User
 Route::post('/logout', [UserController::class, 'logout']);
+
+// View Transactions Index
+Route::get('/transactions', [TransactionController::class, 'view']);

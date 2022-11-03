@@ -12,6 +12,9 @@ class UserController extends Controller
     // View Registration Form
     public function showRegister()
     {
+        if (Auth::guest()) {
+            return redirect('/login');
+        } else {
             return view('users.register', [
                 'roles' => [
                     [
@@ -24,7 +27,7 @@ class UserController extends Controller
                     ],
                 ]
             ]);
-        
+        }
     }
 
     // Store User

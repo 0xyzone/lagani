@@ -8,8 +8,8 @@
     @php
         $menuitem = [
             [
-                'name' => 'Transaction',
-                'path' => 'transaction',
+                'name' => 'Transactions',
+                'path' => 'transactions',
                 'icon_class' => 'fa-regular fa-cash-register',
             ],
         ];
