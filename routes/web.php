@@ -21,6 +21,9 @@ Route::get('/', [MainController::class, 'view']);
 // View Login Page
 Route::get('/login', [MainController::class, 'login']);
 
+// View User Main Page
+Route::get('/users', [UserController::class, 'view']);
+
 // Register an User -Show registration form
 Route::get('/users/register', [UserController::class, 'showRegister']);
 

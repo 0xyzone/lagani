@@ -8,15 +8,21 @@ use Illuminate\Support\Facades\Auth;
 class MainController extends Controller
 {
     // View Homepage
-    public function view(){
-        return view('index');
+    public function view()
+    {
+        if (Auth::guest()) {
+            return redirect('/login');
+        } else {
+            return view('index');
+        }
     }
 
-    public function login(){
-        if(Auth::guest()) {
+    public function login()
+    {
+        if (Auth::guest()) {
             return view('users.login');
         } else {
-            return view('/');
+            return redirect('/');
         }
     }
 }

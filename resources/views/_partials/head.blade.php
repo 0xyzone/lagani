@@ -10,11 +10,13 @@
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <title id="title">
-        @hasSection('title')
-            @yield('title') | Finance Portal
-        @else
-            Finance Portal
-        @endif
+        @isset($title)
+            {{ $title }} | Lagani Portal
+        @endisset
+            
+        @empty($title)
+            Lagani Portal
+        @endempty
     </title>
 
     <script type="text/javascript">

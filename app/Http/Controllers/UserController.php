@@ -76,4 +76,15 @@ class UserController extends Controller
 
         return redirect('/login')->with('success', 'You have been logged out successfully!');
     }
+
+    // View User Main Page
+    public function view() {
+        if(Auth::guest()){
+            return redirect('/login');
+        } else {
+            return view('users.index', [
+                'title' => 'Users'
+            ]);
+        }
+    }
 }

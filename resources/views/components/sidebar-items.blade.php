@@ -8,6 +8,11 @@
     @php
         $menuitem = [
             [
+                'name' => 'Users',
+                'path' => 'users',
+                'icon_class' => 'fa-solid fa-users-gear',
+            ],
+            [
                 'name' => 'Transactions',
                 'path' => 'transactions',
                 'icon_class' => 'fa-regular fa-cash-register',
