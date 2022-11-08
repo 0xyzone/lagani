@@ -841,6 +841,9 @@ select {
 .mb-4 {
   margin-bottom: 1rem;
 }
+.mt-5 {
+  margin-top: 1.25rem;
+}
 .inline-block {
   display: inline-block;
 }
@@ -849,6 +852,9 @@ select {
 }
 .inline-flex {
   display: inline-flex;
+}
+.table {
+  display: table;
 }
 .grid {
   display: grid;
@@ -1089,9 +1095,9 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(68 64 60 / var(--tw-bg-opacity));
 }
-.bg-stone-900 {
+.bg-gray-900 {
   --tw-bg-opacity: 1;
-  background-color: rgb(28 25 23 / var(--tw-bg-opacity));
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 .bg-black {
   --tw-bg-opacity: 1;
@@ -1105,11 +1111,12 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(101 163 13 / var(--tw-bg-opacity));
 }
-.bg-gray-200\/50 {
-  background-color: rgb(229 231 235 / 0.5);
-}
 .bg-transparent {
   background-color: transparent;
+}
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -1235,6 +1242,9 @@ select {
 .font-medium {
   font-weight: 500;
 }
+.uppercase {
+  text-transform: uppercase;
+}
 .leading-7 {
   line-height: 1.75rem;
 }
@@ -1243,6 +1253,9 @@ select {
 }
 .leading-5 {
   line-height: 1.25rem;
+}
+.leading-normal {
+  line-height: 1.5;
 }
 .text-gray-200 {
   --tw-text-opacity: 1;
@@ -2565,6 +2578,16 @@ input[type=number] {
     Animations - end
   ---- */
 
+.odd\:bg-gray-100:nth-child(odd) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.even\:bg-gray-300:nth-child(even) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
+
 .focus-within\:text-lime-500:focus-within {
   --tw-text-opacity: 1;
   color: rgb(132 204 22 / var(--tw-text-opacity));
@@ -2585,6 +2608,15 @@ input[type=number] {
   background-color: rgb(77 124 15 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-gray-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+.hover\:font-bold:hover {
+  font-weight: 700;
+}
+
 .hover\:text-stone-200:hover {
   --tw-text-opacity: 1;
   color: rgb(231 229 228 / var(--tw-text-opacity));
@@ -2593,6 +2625,16 @@ input[type=number] {
 .hover\:text-gray-200:hover {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+
+.hover\:text-amber-600:hover {
+  --tw-text-opacity: 1;
+  color: rgb(217 119 6 / var(--tw-text-opacity));
+}
+
+.hover\:text-rose-600:hover {
+  --tw-text-opacity: 1;
+  color: rgb(225 29 72 / var(--tw-text-opacity));
 }
 
 .focus\:border-gray-500:focus {
@@ -2753,6 +2795,10 @@ input[type=number] {
 }
 
 @media (min-width: 768px) {
+
+  .md\:inline-block {
+    display: inline-block;
+  }
 
   .md\:flex {
     display: flex;

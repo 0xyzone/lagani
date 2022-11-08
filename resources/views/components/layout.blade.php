@@ -3,7 +3,7 @@
 
 @include('_partials.head')
 
-<body class="w-screen h-screen relative font-light lg:font-normal z-0 bg-stone-900" onload='display_ct7();'>
+<body class="w-screen h-screen relative font-light lg:font-normal z-0 bg-gray-900" onload='display_ct7();'>
 
     <x-flash-error />
 

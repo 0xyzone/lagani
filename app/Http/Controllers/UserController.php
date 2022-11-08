@@ -83,7 +83,8 @@ class UserController extends Controller
             return redirect('/login');
         } else {
             return view('users.index', [
-                'title' => 'Users'
+                'title' => 'Users',
+                'users' => User::all(),
             ]);
         }
     }

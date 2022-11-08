@@ -1,6 +1,6 @@
 @auth
 <aside
-    class="z-20 flex-shrink-0 hidden w-64 overflow-y-auto bg-stone-800 md:flex flex-col justify-between">
+    class="z-20 flex-shrink-0 hidden w-64 overflow-y-auto bg-gray-800 md:flex flex-col justify-between">
     <x-sidebar-items />
 </aside>
 <!-- Mobile sidebar -->
