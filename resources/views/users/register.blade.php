@@ -1,16 +1,17 @@
-@if (auth()->user()->role != 'Admih')
-    <x-layout>
+@if (auth()->user()->role != 'admin')
+    <x-layout :title="$title">
         Not Permited
     </x-layout>
 @else
-    <x-layout>
+    <x-layout :title="$title">
         <div class="flex flex-col items-center w-full gap-4">
-            <div>
+            <div class="fadeInTop">
                 <p class="font-bold text-4xl">Reigster a User</p>
             </div>
-            <form action="/users/store" method="post" class="forms">
+            <form action="/users/store" method="post" class="forms fadeInBottom">
                 @csrf
-                <input type="text" name="name" id="name" placeholder="Name" value="{{ old('name') }}" autofocus>
+                <input type="text" name="name" id="name" placeholder="Name" value="{{ old('name') }}"
+                    autofocus>
                 @error('name')
                     <p class="text-rose-400 text-sm">{{ $message }}</p>
                 @enderror
@@ -42,6 +43,39 @@
                 @enderror
                 <button type="submit" class="btn-primary mt-4">Create</button>
             </form>
+        </div>
+        <div class="flex flex-col items-center w-full gap-4 mt-5">
+            <div class="fadeInBottom">
+                <p class="font-bold text-4xl">Recent Addition</p>
+            </div>
+            <table class="w-full mt-2 hidden md:block fadeInBottom table-fixed">
+                <thead class="w-full">
+                    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal w-full">
+                        <td class="tabledata w-1/12">ID</td>
+                        <td class="tabledata w-4/12">Name</td>
+                        <td class="tabledata w/2/12">Username</td>
+                        <td class="tabledata w-2/12">Email</td>
+                        <td class="tabledata w-2/12">Role</td>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm font-light w-full">
+                    @foreach ($users as $user)
+                        @if ($user['id'] == '1')
+                            @continue
+                        @endif
+                        <tr class="hover:bg-gray-200 odd:bg-gray-100 even:bg-gray-300 w-full">
+                            <td class="user-td">{{ $user->id }}</td>
+                            <td class="user-td">{{ $user->name }}</td>
+                            <td class="user-td">{{ $user->username }}</td>
+                            <td class="user-td">{{ $user->email }}</td>
+                            <td class="user-td capitalize">{{ $user->role }} </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <div class="mt-6 w-full fadeInBottom">
+                {{ $users->links() }}
+            </div>
         </div>
     </x-layout>
 @endif

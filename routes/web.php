@@ -30,6 +30,15 @@ Route::get('/users/register', [UserController::class, 'showRegister']);
 // Store User
 Route::post('/users/store', [UserController::class, 'store']);
 
+// Edit User
+Route::get('/users/{user}/edit', [UserController::class, 'edit']);
+
+// Update User
+Route::put('/users/{user}/update', [UserController::class, 'update']);
+
+// Delete User
+Route::delete('/users/{user}/delete', [UserController::class, 'destroy']);
+
 // Authenticate User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 

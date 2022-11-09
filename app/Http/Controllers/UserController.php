@@ -25,7 +25,9 @@ class UserController extends Controller
                         'name' => 'Investor',
                         'value' => 'investor',
                     ],
-                ]
+                ],
+                'title' => 'Register a User',
+                'users' => User::orderBy('id', 'desc')->paginate(3)
             ]);
         }
     }
@@ -47,6 +49,47 @@ class UserController extends Controller
         User::create($formFields);
 
         return redirect('/users/register')->with('success', 'User created successfully.');
+    }
+
+    // Edit User
+    public function edit($user){
+        if(Auth::guest()){
+            return redirect('/login');
+        } else {
+            return view('users.edit',[
+                'title' => 'Edit User',
+                'user' => User::find($user),
+                'roles' => [
+                    [
+                        'name' => 'Admin',
+                        'value' => 'admin',
+                    ],
+                    [
+                        'name' => 'Investor',
+                        'value' => 'investor',
+                    ],
+                ],
+            ]);
+        }
+    }
+
+    // Update User
+    public function update(Request $request, User $user){
+        $formFields = $request->validate([
+            'name' => 'required',
+            'username' => ['required', Rule::unique('users', 'username')->ignore($user->id)],
+            'role'      => ['required'],
+            'email' => ['required', 'email', Rule::unique('users', 'email')->ignore($user->id)],
+        ]);
+        $user->update($formFields);
+        return redirect('/users')->with('success', 'User updated successfully.');
+    }
+
+    // Delete User
+    public function destroy( User $user){
+        $user->delete();
+        
+        return redirect('/users')->with('success', 'User deleted successfully!');
     }
 
     // Login User
@@ -84,7 +127,7 @@ class UserController extends Controller
         } else {
             return view('users.index', [
                 'title' => 'Users',
-                'users' => User::all(),
+                'users' => User::paginate(5),
             ]);
         }
     }
