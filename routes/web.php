@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DepositController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\TransactionController;
@@ -47,3 +48,18 @@ Route::post('/logout', [UserController::class, 'logout']);
 
 // View Transactions Index
 Route::get('/transactions', [TransactionController::class, 'view']);
+
+// Deposit Form View
+Route::get('/transactions/deposit', [DepositController::class, 'view']);
+
+// Store Deposit
+Route::post('/transactions/deposit/store', [DepositController::class, 'store']);
+
+// Edit Deposit
+Route::get('/transactions/deposit/{deposit}/edit', [DepositController::class, 'edit']);
+
+// Update Deposit
+Route::put('/transactions/deposit/{deposit}/update', [DepositController::class, 'update']);
+
+// Delete Deposit
+Route::delete('/transactions/deposit/{deposit}/delete', [DepositController::class, 'destroy']);

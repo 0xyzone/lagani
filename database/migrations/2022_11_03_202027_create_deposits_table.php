@@ -15,6 +15,12 @@ class CreateDepositsTable extends Migration
     {
         Schema::create('deposits', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
+            $table->date('transaction_date');
+            $table->integer('transaction_id');
+            $table->integer('amount');
+            $table->string('verified');
+            $table->longText('comments')->nullable();
             $table->timestamps();
         });
     }

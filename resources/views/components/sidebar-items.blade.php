@@ -1,6 +1,6 @@
-<div class="py-4 text-stone-400">
-    <a class="ml-6 text-2xl font-bold text-stone-200" href="/">
-        Admin Portal
+<div class=" text-stone-400">
+    <a href="/">
+        <img src="{{ asset('img/logo.svg')}}" alt="Logo" class="bg-gray-100 p-4 rounded-b-xl drop-shadow-md shadow-gray-900">
     </a>
 
     {{-- Menu Item Arrays --}}
@@ -39,8 +39,8 @@
     </ul>
 </div>
 <div>
-    <ul class="mt-6">
-        <li class="relative px-6 py-3">
+    <ul class="">
+        <li class="relative px-6 py-3 hidden md:block">
 
             <button
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-stone-200"
