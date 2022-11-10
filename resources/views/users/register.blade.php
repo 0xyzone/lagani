@@ -73,7 +73,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="mt-6 w-full fadeInBottom">
+            <div class="mt-6 w-full fadeInBottom mb-10">
                 {{ $users->links() }}
             </div>
         </div>

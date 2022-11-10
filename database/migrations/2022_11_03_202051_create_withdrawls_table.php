@@ -15,6 +15,12 @@ class CreateWithdrawlsTable extends Migration
     {
         Schema::create('withdrawls', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->date('transaction_date');
+            $table->string('cheque_no')->unique();
+            $table->integer('amount');
+            $table->string('verified');
+            $table->string('comments')->nullable();
             $table->timestamps();
         });
     }

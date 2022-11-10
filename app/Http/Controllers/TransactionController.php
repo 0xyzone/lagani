@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Deposit;
+use App\Models\Withdrawl;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,8 @@ class TransactionController extends Controller
         } else {
             return view('transactions.index', [
                 'title' => 'Transactions',
-                'deposits' => Deposit::paginate(5, ['*'], 'deposits'),
+                'deposits' => Deposit::paginate(3, ['*'], 'deposits'),
+                'withdrawls' => Withdrawl::paginate(3, ['*'], 'withdrawls'),
                 'users' => User::all(),
             ]);
         }

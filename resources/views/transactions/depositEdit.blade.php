@@ -1,7 +1,7 @@
 <x-layout :title='$title'>
     <div class="flex flex-col flex-1 w-full items-center">
         <form action="/transactions/deposit/{{$deposit->id}}/update" method="post" class="w-full lg:w-4/12 forms !gap-4">
-            <div class="text-4xl font-bold text-center mb-4">Update Deposit #{{$deposit->id}}</div>
+            <div class="text-2xl font-bold text-center mb-4">Update Deposit #{{$deposit->id}}</div>
             @csrf
             @method('PUT')
             <select name="user_id" id="user_id" class="text-gray-200">
@@ -48,7 +48,7 @@
             @enderror
 
             <textarea name="comments" id="comments" rows="2" placeholder="Some comments here..."
-                class="rounded-lg bg-gray-300/50 placeholder:text-gray-300">{{$deposit->comments}}</textarea>
+                class="rounded-lg bg-gray-300/50 placeholder:text-gray-300 text-white">{{$deposit->comments}}</textarea>
             @error('comments')
                 <p class="text-red-300 text-sm font-thin">{{ $message }}</p>
             @enderror

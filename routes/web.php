@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\DepositController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DepositController;
+use App\Http\Controllers\WithdrawlController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +64,18 @@ Route::put('/transactions/deposit/{deposit}/update', [DepositController::class, 
 
 // Delete Deposit
 Route::delete('/transactions/deposit/{deposit}/delete', [DepositController::class, 'destroy']);
+
+// Withdrawl Form View
+Route::get('/transactions/withdrawl', [WithdrawlController::class, 'view']);
+
+// Store Withdrawl
+Route::post('/transactions/withdrawl/store', [WithdrawlController::class, 'store']);
+
+// Edit Deposit
+Route::get('/transactions/withdrawl/{withdrawl}/edit', [WithdrawlController::class, 'edit']);
+
+// Update Deposit
+Route::put('/transactions/withdrawl/{withdrawl}/update', [WithdrawlController::class, 'update']);
+
+// Delete Withdrawl
+Route::delete('/transactions/withdrawl/{withdrawl}/delete', [WithdrawlController::class, 'destroy']);

@@ -30,7 +30,7 @@
                 <p class="text-red-300 text-sm font-thin">{{ $message }}</p>
             @enderror
 
-            <input type="text" name="transaction_id" id="transaction_id" placeholder="Transaction id (Optional)"
+            <input type="number" name="transaction_id" id="transaction_id" placeholder="Transaction id (Optional)"
                 autocomplete="off" value="{{ old('transaction_id') }}">
             @error('transaction_id')
                 <p class="text-red-300 text-sm font-thin">{{ $message }}</p>
@@ -46,7 +46,7 @@
             @enderror
 
             <textarea name="comments" id="comments" rows="2" placeholder="Some comments here..."
-                class="rounded-lg bg-gray-300/50 placeholder:text-gray-300">{{ old('comments') }}</textarea>
+                class="rounded-lg bg-gray-300/50 placeholder:text-gray-300 text-white">{{ old('comments') }}</textarea>
             @error('comments')
                 <p class="text-red-300 text-sm font-thin">{{ $message }}</p>
             @enderror

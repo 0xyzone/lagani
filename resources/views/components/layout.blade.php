@@ -3,17 +3,17 @@
 
 @include('_partials.head')
 
-<body class="w-screen h-screen relative font-light lg:font-normal z-0 bg-gray-900" onload='display_ct7();'>
+<body class="w-screen h-screen relative font-light lg:font-normal z-0 bg-gray-900 overflow-x-hidden overflow-y-hidden" onload='display_ct7();'>
 
     <x-flash-error />
 
     <x-flash-success />
 
-    <div class="flex h-screen" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    <div class="flex flex-1 h-full" :class="{ 'overflow-auto': isSideMenuOpen }">
         <x-sidebar />
         <div class="flex flex-col flex-1 w-full">
             <x-header />
-            <x-container class="pt-10 px-10">
+            <x-container class="pt-10 px-10 overflow-y-auto">
                 {{ $slot }}
             </x-container>
         </div>
