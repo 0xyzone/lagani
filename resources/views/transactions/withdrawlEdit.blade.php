@@ -1,3 +1,4 @@
+@if (auth()->user()->role == 'admin')
 <x-layout :title='$title'>
     <div class="flex flex-col flex-1 w-full items-center">
         <form action="/transactions/withdrawl/{{$withdrawl->id}}/update" method="post" class="w-full lg:w-4/12 forms !gap-4">
@@ -40,10 +41,10 @@
                 <p class="text-red-300 text-sm font-thin">{{ $message }}</p>
             @enderror
 
-            <div class="relative flex">
-                <p class="absolute bottom-1.5 font-extrabold">रू</p>
+            <div class="relative flex items-center">
+                <p class="font-extrabold">रू</p>
                 <input type="number" name="amount" id="amount" placeholder="Amount" autocomplete="off"
-                    class="appearance-none ml-5" value="{{ $withdrawl->amount }}">
+                    class="appearance-none ml-2" value="{{ $withdrawl->amount }}">
             </div>
             @error('amount')
                 <p class="text-red-300 text-sm font-thin">{{ $message }}</p>
@@ -69,3 +70,8 @@
         </form>
     </div>
 </x-layout>
+@else
+<x-layout>
+    Not Permited
+</x-layout>
+@endif

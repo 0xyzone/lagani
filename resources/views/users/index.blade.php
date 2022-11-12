@@ -1,3 +1,4 @@
+@if (auth()->user()->role == 'admin')
 <x-layout :title="$title">
     <x-top-bar :title="$title">
         @if (auth()->user()->role == 'admin')
@@ -25,7 +26,7 @@
                 @if ($user['id'] == '1')
                     @continue
                 @endif
-                <tr class="hover:bg-gray-200 odd:bg-gray-100 even:bg-gray-300 w-full">
+                <tr class="hover:bg-gray-200 odd:bg-gray-100 even:bg-gray-300 w-full cursor-pointer" id="user_{{$user->id}}">
                     <td class="text-right">{{ $user->id }}</td>
                     <td class="pl-2">{{ $user->name }}</td>
                     <td class="user-td">{{ $user->username }}</td>
@@ -45,10 +46,15 @@
                         </div>
                     </td>
                 </tr>
+                <script>
+                    $('#user_{{ $user->id }}').click(function() {
+                        location.href = '/users/{{ $user->id }}';
+                    });
+                </script>
             @endforeach
         </tbody>
     </table>
-    <div class="flex flex-col gap-4 my-4 md:hidden">
+    <div class="flex flex-col gap-4 my-4 md:hidden fadeInBottom">
         @foreach ($users as $user)
             @if ($user['id'] == '1')
                 @continue
@@ -76,11 +82,16 @@
                                 class="fa-regular fa-trash smooth hover:text-rose-600"></i></button>
                     </form>
                 </div>
-
             </x-card>
         @endforeach
     </div>
     <div class="mt-6 w-full fadeInBottom">
         {{ $users->links() }}
     </div>
+
 </x-layout>
+@else
+<x-layout>
+    Not Permited
+</x-layout>
+@endif

@@ -24,7 +24,7 @@
                     </div>
                     <form action="" method="get" class="w-full">
                         <input
-                            class="w-full !pl-8 pr-2 text-sm border-0 rounded-md placeholder-stone-500 focus:placeholder-stone-600 text-stone-200 form-input"
+                            class="w-full !pl-8 pr-2 text-sm border-0 rounded-md placeholder-gray-500 focus:placeholder-gray-600 text-gray-200 form-input"
                             type="number" name="search" placeholder="Search for trannsactions" aria-label="Search" />
                     </form>
                 @endif
@@ -35,21 +35,20 @@
             
             <!-- Profile menu -->
             <li class="relative">
-                <button class="align-middle rounded-full focus:shadow-outline-lime focus:outline-none"
+                <button class="align-middle rounded-full focus:shadow-outline-lime focus:outline-none flex items-center gap-2 ml-4"
                     @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
                     aria-haspopup="true">
-                    <img class="object-cover w-8 h-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
-                        alt="" aria-hidden="true" />
+                    <i class="fa-duotone fa-user lagani-theme"></i>
+                        <p>{{auth()->user()->name}}</p>
                 </button>
                 <template x-if="isProfileMenuOpen">
                     <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
                         x-transition:leave-end="opacity-0" @click.away="closeProfileMenu"
                         @keydown.escape="closeProfileMenu"
-                        class="absolute right-0 w-56 p-2 mt-2 space-y-2 border rounded-md shadow-md border-stone-700 text-stone-300 bg-stone-700"
+                        class="absolute right-0 w-56 p-2 mt-2 space-y-2 border rounded-md shadow-md border-gray-700 text-gray-300 bg-gray-700"
                         aria-label="submenu">
                         <li class="flex">
-                            <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-stone-800 hover:text-stone-200"
+                            <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-800 hover:text-gray-200"
                                 href="/profile">
                                 <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none" stroke-linecap="round"
                                     stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -63,7 +62,7 @@
                         <li class="flex">
 
                             <button type="submit" for="loggingout" @click="openModal" id="lgbtn2"
-                                class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-stone-800 hover:text-stone-200">
+                                class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-800 hover:text-gray-200">
                                 <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none" stroke-linecap="round"
                                     stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                     <path

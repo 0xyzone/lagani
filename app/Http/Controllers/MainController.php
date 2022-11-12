@@ -13,14 +13,18 @@ class MainController extends Controller
         if (Auth::guest()) {
             return redirect('/login');
         } else {
-            return view('index');
+            return view('index', [
+                'title' => 'Homepage',
+            ]);
         }
     }
 
     public function login()
     {
         if (Auth::guest()) {
-            return view('users.login');
+            return view('users.login', [
+                'title' => 'Login',
+            ]);
         } else {
             return redirect('/');
         }

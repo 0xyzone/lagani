@@ -1,4 +1,4 @@
-<h1 {{$attributes->merge(['class' => 'text-white text-4xl flex gap-2 flex-wrap items-end'])}}>
+<h1 {{$attributes->merge(['class' => 'text-white text-4xl flex gap-2 flex-wrap items-end fadeInTop'])}}>
     @php
     date_default_timezone_set('Asia/Kathmandu');
     @endphp

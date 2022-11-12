@@ -36,10 +36,10 @@
                 <p class="text-red-300 text-sm font-thin">{{ $message }}</p>
             @enderror
 
-            <div class="relative flex">
-                <p class="absolute bottom-1.5 font-extrabold">रू</p>
+            <div class="relative flex items-center">
+                <p class="font-extrabold">रू</p>
                 <input type="number" name="amount" id="amount" placeholder="Amount" autocomplete="off"
-                    class="appearance-none ml-5" value="{{ old('amount') }}">
+                    class="appearance-none ml-2" value="{{ old('amount') }}">
             </div>
             @error('amount')
                 <p class="text-red-300 text-sm font-thin">{{ $message }}</p>

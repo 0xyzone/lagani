@@ -1,3 +1,4 @@
+@if (auth()->user()->role == 'admin')
 <x-layout :title="$title">
     <div class="flex flex-col items-center w-full gap-4">
         <div class="fadeInTop">
@@ -34,3 +35,8 @@
         </form>
     </div>
 </x-layout>
+@else
+<x-layout>
+    Not Permited
+</x-layout>
+@endif

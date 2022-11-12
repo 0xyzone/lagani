@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Deposit;
+use App\Models\Withdrawl;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
@@ -130,5 +132,40 @@ class UserController extends Controller
                 'users' => User::paginate(5),
             ]);
         }
+    }
+
+    // Personal profile page
+    public function personal(){
+        if(Auth::guest()){
+            return redirect('/login');
+        } else {
+            return view('users.profile', [
+                'title' => 'Profile',
+                'user' => Auth::user(),
+                'deposits' => Deposit::where('user_id', Auth::id())->paginate(3, ['*'], 'deposits'),
+                'withdrawls' => Withdrawl::where('user_id', Auth::id())->paginate(3, ['*'], 'withdrawls'),
+                'user_id' => auth()->user()->id,
+                'total_deposit' => Deposit::where('user_id', Auth::id())->sum('amount'),
+                'total_withdrawl' => Withdrawl::where('user_id', Auth::id())->sum('amount'),
+                'users' => User::all(),
+            ]);
+        };
+    }
+
+    // View Signle user
+    public function single(User $user){
+        if(Auth::guest()){
+            return redirect('/login');
+        } else {
+            return view('users.single', [
+                'title' => $user->name,
+                'user' => $user,
+                'deposits' => Deposit::where('user_id', $user->id)->paginate(3, ['*'], 'deposits'),
+                'withdrawls' => Withdrawl::where('user_id', $user->id)->paginate(3, ['*'], 'withdrawls'),
+                'total_deposit' => Deposit::where('user_id', $user->id)->sum('amount'),
+                'total_withdrawl' => Withdrawl::where('user_id', $user->id)->sum('amount'),
+                'users' => User::all(),
+            ]);
+        };
     }
 }

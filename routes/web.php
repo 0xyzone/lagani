@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
@@ -79,3 +80,12 @@ Route::put('/transactions/withdrawl/{withdrawl}/update', [WithdrawlController::c
 
 // Delete Withdrawl
 Route::delete('/transactions/withdrawl/{withdrawl}/delete', [WithdrawlController::class, 'destroy']);
+
+// View Dashboard
+Route::get('/dashboard', [DashboardController::class, 'view']);
+
+// View personal profile page
+Route::get('/profile', [UserController::class, 'personal']);
+
+// Single User Page
+Route::get('/users/{user}', [UserController::class, 'single']);

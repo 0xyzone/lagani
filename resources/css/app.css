@@ -18,6 +18,16 @@ legend {
   @apply px-2 text-center font-bold;
 }
 
+.lagani-theme {
+  --fa-secondary-opacity: 1.0;
+  --fa-primary-color: #7CB342;
+  --fa-secondary-color: rgb(185, 185, 185);
+}
+
+.dashboard_stats {
+  @apply text-lime-600 font-bold;
+}
+
 .titlebar {
   @apply w-full p-2 flex gap-4 items-center text-2xl font-bold outline outline-1 rounded-lg;
 }
