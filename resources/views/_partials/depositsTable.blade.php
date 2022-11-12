@@ -74,3 +74,6 @@
         @endif
     </tbody>
 </table>
+<div class="mt-6 w-full fadeInBottom">
+    {{ $deposits->links() }}
+</div>

@@ -71,3 +71,6 @@
         @endif
     </tbody>
 </table>
+<div class="mt-6 w-full fadeInBottom">
+    {{ $withdrawls->links() }}
+</div>
