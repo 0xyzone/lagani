@@ -80,6 +80,7 @@ class UserController extends Controller
         $formFields = $request->validate([
             'name' => 'required',
             'username' => ['required', Rule::unique('users', 'username')->ignore($user->id)],
+            
             'role'      => ['required'],
             'email' => ['required', 'email', Rule::unique('users', 'email')->ignore($user->id)],
         ]);

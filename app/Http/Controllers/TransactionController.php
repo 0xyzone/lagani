@@ -17,8 +17,8 @@ class TransactionController extends Controller
         } else {
             return view('transactions.index', [
                 'title' => 'Transactions',
-                'deposits' => Deposit::paginate(3, ['*'], 'deposits'),
-                'withdrawls' => Withdrawl::paginate(3, ['*'], 'withdrawls'),
+                'deposits' => Deposit::orderBy('id', 'desc')->paginate(3, ['*'], 'deposits'),
+                'withdrawls' => Withdrawl::orderBy('id', 'desc')->paginate(3, ['*'], 'withdrawls'),
                 'users' => User::all(),
             ]);
         }

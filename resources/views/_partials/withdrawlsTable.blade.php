@@ -1,5 +1,5 @@
 <h1 class="mt-6 text-2xl font-bold fadeInBottom">Withdrawl</h1>
-<table class="w-full mt-5 fadeInBottom table-fixed">
+<table class="w-full mt-5 fadeInBottom table-fixed hidden md:block">
     <thead class="w-full">
         <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal w-full">
             <td class="text-right w-1/12 pr-2">ID</td>

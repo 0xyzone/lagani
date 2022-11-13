@@ -1,5 +1,5 @@
-<h1 class="mt-6 text-2xl font-bold fadeInBottom">Deposits</h1>
-<table class="w-full mt-5 fadeInBottom table-fixed">
+<h1 class="mt-6 text-2xl md:font-bold fadeInBottom">Deposits</h1>
+<table class="w-full mt-5 fadeInBottom table-fixed hidden md:block">
     <thead class="w-full">
         <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal w-full">
             <td class="text-right w-1/12 pr-2">ID</td>
@@ -74,6 +74,13 @@
         @endif
     </tbody>
 </table>
+<div class="flex flex-col w-full gap-4 fadeInBottom mt-6">
+    @foreach ($deposits as $deposit)
+    <x-card>
+        
+    </x-card>
+    @endforeach
+</div>
 <div class="mt-6 w-full fadeInBottom">
     {{ $deposits->links() }}
 </div>
